@@ -1,26 +1,24 @@
 const add = function(x, y){
-    const z = x + y;
-    return z;
+    return x + y;
 }
 
 const subtract = function(x, y) {
-    const z = x - y;
-    return z;
+    return x - y;
 }
 
 const multiply = function(x, y) {
-    const z = x * y;
-    return z;
+    return x * y;
 }
 
 const divide = function() {
-    const z = x / y;
-    return z;
+    return  x / y;
 }
 
 
 
 const operate = function(operator, x, y) {
+    x = Number(x);
+    y = Number(y);
     switch(operator) {
         case '+': 
             return add(x, y);
@@ -29,9 +27,10 @@ const operate = function(operator, x, y) {
         case '*':
             return multiply(x, y);
         case '/':
-            return divide(x, y);
+            if(y === 0) return null
+            else return divide(x, y);
         default:
-            return "Invalid operator";
+            return null;
     }
 }
 
