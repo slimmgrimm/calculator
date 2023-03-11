@@ -34,14 +34,29 @@ const operate = function(operator, x, y) {
     }
 }
 
-const display = document.getElementById('result');
+const previousEntry = document.getElementById('previousEntry');
+const currentEntry = document.getElementById('currentEntry');
 let displayValue = '';
 
 const updateDisplay = function() {
-    display.textContent = displayValue;
+    currentEntry.textContent = displayValue;
 }
 
 const addToOutput = function(digit) {
     displayValue += digit;
     updateDisplay();
+}
+
+const clearDisplay = function() {
+    previousEntry.textContent = '';
+    currentEntry.textContent = 0;
+    displayValue = '';
+}
+
+const deleteDigit = function() {
+    currentEntry.textContent = 
+        currentEntry.textContent
+            .toString()
+            .slice(0, -1);
+    displayValue = currentEntry.textContent;
 }

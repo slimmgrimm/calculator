@@ -9,11 +9,12 @@
   <body>
     <div class="calculator">
       <div class="display">
-        <p id="result">0</p>
+        <p id="previousEntry"></p>
+        <p id="currentEntry">0</p>
       </div>
       <div class="keys">
-        <button id="clear">C</button>
-        <button id="backspace">&larr;</button>
+        <button id="clear" onclick="clearDisplay()">C</button>
+        <button id="backspace" onclick="deleteDigit()">&larr;</button>
         <button id="percent">%</button>
         <button id="divide">/</button>
 
