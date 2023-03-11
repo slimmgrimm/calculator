@@ -15,28 +15,28 @@
       <div class="keys">
         <button id="clear" onclick="clearDisplay()">C</button>
         <button id="backspace" onclick="deleteDigit()">&larr;</button>
-        <button id="percent">%</button>
-        <button id="divide">/</button>
+        <button id="percent" onclick="setOperation('%')">%</button>
+        <button id="divide" onclick="setOperation('/')">/</button>
 
         <button id="seven" onclick="addToOutput('7')">7</button>
         <button id="eight" onclick="addToOutput('8')">8</button>
         <button id="nine" onclick="addToOutput('9')">9</button>
-        <button id="multiply">*</button>
+        <button id="multiply" onclick="setOperation('*')">*</button>
 
         <button id="four" onclick="addToOutput('4')">4</button>
         <button id="five" onclick="addToOutput('5')">5</button>
         <button id="six" onclick="addToOutput('6')">6</button>
-        <button id="subtract">-</button>
+        <button id="subtract" onclick="setOperation('-')">-</button>
 
         <button id="one" onclick="addToOutput('1')">1</button>
         <button id="two" onclick="addToOutput('2')">2</button>
         <button id="three" onclick="addToOutput('3')">3</button>
-        <button id="add">+</button>
+        <button id="add" onclick="setOperation('+')">+</button>
 
-        <button id="sign">+/-</button>
+        <button id="sign" onclick="signChange()">+/-</button>
         <button id="zero" onclick="addToOutput('0')">0</button>
         <button id="decimal">.</button>
-        <button id="equals">=</button>
+        <button id="equals" onclick="calculate()">=</button>
       </div>
     </div>
   </body>
