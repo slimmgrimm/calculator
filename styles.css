@@ -21,8 +21,9 @@
     width: 100%;
     height: 100px;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
     padding: 0 10px;
     box-sizing: border-box;
   }
@@ -30,6 +31,10 @@
   .display p {
     font-size: 3em;
     color: #333;
+  }
+    
+  p#previousEntry {
+    font-size: 1.5em;
   }
   
   .keys {
