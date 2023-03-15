@@ -1,24 +1,105 @@
+/////////////INITIALIZE ME COACH/////////////
+const previousEntry = document.getElementById('previousEntry');
+const currentEntry = document.getElementById('currentEntry');
+let displayValue = '';
+let firstNumber = '';
+let secondNumber = '';
+let currentOperation = '';
+
+
+//////////////DISPLAY FUNCTIONS/////////////
+const updateDisplay = function() {
+    currentEntry.textContent = displayValue;
+}
+
+const clearDisplay = function() {
+    previousEntry.textContent = '';
+    currentEntry.textContent = 0;
+    displayValue = '';
+    firstNumber = '';
+    secondNumber = '';
+    currentOperation = '';
+}
+
+const addToOutput = function(digit) {
+    if(displayValue === '0'){
+        return;
+    }
+    displayValue += digit;
+    updateDisplay();
+}
+
+const deleteDigit = function() {
+    currentEntry.textContent = 
+        currentEntry.textContent
+            .toString()
+            .slice(0, -1);
+    displayValue = currentEntry.textContent;
+}
+
+const putDecimal = function() {
+    if(currentEntry.textContent === '') {
+        currentEntry.textContent = '0';
+    } else if(currentEntry.textContent.includes('.')){
+        return;
+    }
+    displayValue += '.';
+    updateDisplay();
+}
+
+const signChange = function() {
+    x = Number(currentEntry.textContent);
+    if(x < 0) {
+        currentEntry.textContent = Math.abs(currentEntry.textContent);
+    } else if (x > 0) {
+        currentEntry.textContent = ((currentEntry.textContent) * -1);
+    }
+    displayValue = currentEntry.textContent;
+}
+
+
+//////////////////MEAT AND POTATOES//////////////////
+const setOperation = function(operator) {
+    if(currentOperation !== '') calculate();
+    firstNumber = Number(currentEntry.textContent);
+    currentOperation = operator;
+    previousEntry.textContent = `${firstNumber} ${currentOperation}`;
+    displayValue = '';
+}
+
+const calculate = function() {
+    if(currentOperation === '') {
+        return;
+    }
+    if(currentOperation === '/' && currentEntry.textContent === '0') {
+        alert('You cannot divide by zero. System Meltdown Imminent!');
+        displayValue = '';
+        updateDisplay();
+        return;
+    }
+    secondNumber = Number(currentEntry.textContent);
+    currentEntry.textContent = roundNumber(operate(currentOperation, firstNumber, secondNumber));
+    previousEntry.textContent = `${firstNumber} ${currentOperation} ${secondNumber} =`
+    currentOperation = '';
+}
+
+
+///////////////////BASIC MATH FUNCTIONS///////////////////
 const add = function(x, y){
-    const z = x + y;
-    return z;
+    return x + y;
 }
-
 const subtract = function(x, y) {
-    const z = x - y;
-    return z;
+    return x - y;
 }
-
 const multiply = function(x, y) {
-    const z = x * y;
-    return z;
+    return x * y;
 }
-
-const divide = function() {
-    const z = x / y;
-    return z;
+const divide = function(x, y) {
+    return  x / y;
 }
-
-
+const percent = function(x, y) {
+    return (x + (x * y/100));
+}
 
 const operate = function(operator, x, y) {
     switch(operator) {
@@ -29,20 +110,19 @@ const operate = function(operator, x, y) {
         case '*':
             return multiply(x, y);
         case '/':
-            return divide(x, y);
+            if(y === 0) return null
+            else return divide(x, y);
+        case '%':
+            return percent(x, y);
         default:
-            return "Invalid operator";
+            return null;
     }
 }
 
-const display = document.getElementById('result');
-let displayValue = '';
-
-const updateDisplay = function() {
-    display.textContent = displayValue;
+const roundNumber = function(x) {
+    return Math.round(x * 1000) / 1000;
 }
 
-const addToOutput = function(digit) {
-    displayValue += digit;
-    updateDisplay();
+const checkForGlobal = function() {
+    console.log(x);
 }
