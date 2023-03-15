@@ -25,7 +25,7 @@ const addToOutput = function(digit) {
     if(displayValue === '0'){
         return;
     }
-    displayValue += digit;
+    displayValue += Number(digit);
     updateDisplay();
 }
 
@@ -48,7 +48,7 @@ const putDecimal = function() {
 }
 
 const signChange = function() {
-    x = Number(currentEntry.textContent);
+    let x = Number(currentEntry.textContent);
     if(x < 0) {
         currentEntry.textContent = Math.abs(currentEntry.textContent);
     } else if (x > 0) {
@@ -60,7 +60,10 @@ const signChange = function() {
 
 //////////////////MEAT AND POTATOES//////////////////
 const setOperation = function(operator) {
-    if(currentOperation !== '') calculate();
+    if(displayValue === '.') {
+        return;
+    }
+    if(secondNumber !== '') calculate();
     firstNumber = Number(currentEntry.textContent);
     currentOperation = operator;
     previousEntry.textContent = `${firstNumber} ${currentOperation}`;
@@ -68,6 +71,9 @@ const setOperation = function(operator) {
 }
 
 const calculate = function() {
+    if(displayValue === '.') {
+        return;
+    }
     if(currentOperation === '') {
         return;
     }
@@ -120,7 +126,7 @@ const operate = function(operator, x, y) {
 }
 
 const roundNumber = function(x) {
-    return Math.round(x * 1000) / 1000;
+    return Math.round(x * 100000) / 100000;
 }
 
 const checkForGlobal = function() {
