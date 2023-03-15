@@ -73,12 +73,9 @@ const calculate = function() {
     }
     if(currentOperation === '/' && currentEntry.textContent === '0') {
         alert('You cannot divide by zero. System Meltdown Imminent!');
-<<<<<<< HEAD
         displayValue = '';
         updateDisplay();
         return;
-=======
->>>>>>> e865f4e06b2f4e453a517aa74b04d0a68487ec4b
     }
     secondNumber = Number(currentEntry.textContent);
     currentEntry.textContent = roundNumber(operate(currentOperation, firstNumber, secondNumber));
@@ -126,9 +123,6 @@ const roundNumber = function(x) {
     return Math.round(x * 1000) / 1000;
 }
 
-<<<<<<< HEAD
 const checkForGlobal = function() {
     console.log(x);
 }
-=======
->>>>>>> e865f4e06b2f4e453a517aa74b04d0a68487ec4b
