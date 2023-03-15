@@ -33,6 +33,7 @@ body {
   color: #333;
 }
   
+<<<<<<< HEAD
 p#previousEntry {
   font-size: 1.5em;
 }
@@ -94,6 +95,98 @@ button#multiply:hover,
 button#subtract:hover,
 button#add:hover {
   background-color: #e08e2c;
+=======
+  body {
+    background-color: #333;
+  }
+  
+  .calculator {
+    width: 400px;
+    margin: 50px auto;
+    background-color: #ccc;
+    border: 2px solid #555;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .display {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  .display p {
+    font-size: 3em;
+    color: #333;
+  }
+    
+  p#previousEntry {
+    font-size: 1.5em;
+  }
+  
+  .keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1px;
+  }
+  
+  button {
+    width: 100%;
+    height: 50px;
+    font-size: 2em;
+    color: #333;
+    background-color: #eee;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ddd;
+  }
+  
+  button:active {
+    background-color: #ccc;
+  }
+  
+  button#equals {
+    background-color: #d4af37;
+    color: #fff;
+  }
+  
+  button#equals:hover {
+    background-color: #cda732;
+  }
+  
+  button#equals:active {
+    background-color: #b3912b;
+  }
+  
+  button#clear,
+  button#backspace,
+  button#percent,
+  button#divide,
+  button#multiply,
+  button#subtract,
+  button#add {
+    background-color: #f1a33c;
+    color: #fff;
+  }
+  
+  button#clear:hover,
+  button#backspace:hover,
+  button#percent:hover,
+  button#divide:hover,
+  button#multiply:hover,
+  button#subtract:hover,
+  button#add:hover {
+    background-color: #e08e2c;
+>>>>>>> e865f4e06b2f4e453a517aa74b04d0a68487ec4b
 
 
 
